@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>MMKE Group URL Scripts</title>
+  </head>
+  <body>
+    <div class="main">
+        <div class="header">
+            <img src="mmkee-removebg-preview.png" alt="Girl in a jacket" width="130" height="100">
+        </div>
+        <div style="display: flex; flex-direction:column; justify-content:space-between; margin:0 100px 0 100px">
+        <div style="display: flex; flex-direction:column; align-items: center;">
+            <h3 id="h1" class="h1"></h1>
+            <h3 id="h2" class="h2"></h1>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 30px;">
+          <button onclick="myFunctionLast()" id="button" class="buttonBack"><span>Önceki URL'i Aç</span></button>
+          <button onclick="addNewURL()" id="button" class="buttonNewData"><span>Yeni URL Verisi Gir</span></button>
+          <button onclick="myFunctionDeleteAll()" id="button" class="buttonDelete"><span>URL Verilerini Sil</span></button>
+          <button onclick="myFunction()" id="button" class="button"><span>Sıradaki URL'i Aç</span></button>
+          
+        </div>
+        </div>
+        <div style="display: flex; flex-direction:column; align-items:center">       
+          <h1 id="counter" style="margin-top: 150px; margin-bottom: 30px; color:#354E7F;"></h1>
+          <textarea id="textArea" name="textArea" rows="4" cols="50" class="textarea" style="visibility: hidden;" placeholder="Yeni verileri giriniz."></textarea>
+          <button id="buttonSubmit" onclick="saveNewURL()" class="buttonSubmit" style="visibility: hidden;"><span>Yeni Verileri Kaydet</span></button>
+        </div>
+    </div>
+    <script>
+      
+      let temp = ""
+      tempSessionStorage = JSON.parse(localStorage.getItem("data"))
+      let count= 0;
+      function myFunctionDeleteAll(){
+        count = tempSessionStorage.length
+        for(let i=0; i<count; i++){
+          tempSessionStorage.pop()
+        }
+      }
+
+      function myFunction() {
+        let item 
+        if(tempSessionStorage && tempSessionStorage.length>0){
+          item = tempSessionStorage.pop()
+          localStorage.setItem("data",JSON.stringify(tempSessionStorage))
+    
+        }
+        temp = item
+        document.getElementById("h1").innerHTML ="<span style='color: #354E7F;'>Önceki URL : </span>"+item;
+        document.getElementById("h2").innerHTML ="<span style='color: #354E7F;'>Sonraki URL : </span>"+tempSessionStorage[tempSessionStorage.length-1];
+        document.getElementById("counter").innerHTML ="Kalan URL Sayısı : "+tempSessionStorage.length;
+        if (tempSessionStorage.length > 0) {
+          window.open(item, "_blank");
+        } else {
+          alert("URL BITTI");
+        }
+      }
+
+      function addNewURL(){
+        document.getElementById("textArea").style.visibility = "visible"
+        document.getElementById("buttonSubmit").style.visibility = "visible"
+      }
+
+      function saveNewURL(){
+        document.getElementById("textArea").style.visibility = "hidden"
+        document.getElementById("buttonSubmit").style.visibility = "hidden"
+        tempSessionStorage = document.getElementById('textArea').value
+        tempSessionStorage =  tempSessionStorage.split(/\r?\n/)
+
+      }
+
+      function myFunctionLast() {
+       if (tempSessionStorage.length > 0) {
+         window.open(temp, "_blank");
+       } else {
+         alert("URL BITTI");
+       }
+     }
+    </script>
+  </body>
+</html>

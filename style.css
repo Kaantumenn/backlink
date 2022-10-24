@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 2px;
+  cursor: pointer;
+  height: 100px;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
+}
+.buttonDelete{
+  background-color: #F5B041;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 2px;
+  cursor: pointer;
+  height: 100px;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
+}
+.buttonSubmit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 2px;
+  cursor: pointer;
+  height: 80px;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
+}
+button:hover{
+  scale: 0.9;
+}
+.header {
+   min-height: 60px;
+   min-width: "100vw";
+   background-color:#354E7F;
+  }
+.buttonBack {
+    background-color: crimson;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+    height: 100px;
+    letter-spacing: 2px;
+  }
+  .buttonNewData {
+    background-color: #354E7F;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+    height: 100px;
+    letter-spacing: 2px;
+  }
+.h1{
+    width: 1000px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.h2{
+    width: 1000px;
+}
+.textarea {
+  width: 80%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
